@@ -33,7 +33,13 @@ in your main.php your configuration would look like this
 		'pemFile' => dirname(__FILE__).'/apnssert/apns-dev.pem',
 		// 'retryTimes' => 3,
 		'options' => [
-			'sendRetryTimes' => 5
+			'sendRetryTimes' => 5,
+			// Next option looks now mandatory
+			// Otherwise an error appear:
+			// Unable to connect to 'tls://gateway.sandbox.push.apple.com:2195'
+			'rootCertificationAuthority' => dirname(__FILE__).'/entrust_2048_ca.cer',
+			// Download this certificate from
+			// https://www.entrust.com/get-support/ssl-certificate-support/root-certificate-downloads/
 		]
 	],
 	'gcm' => [
